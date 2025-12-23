@@ -14,7 +14,7 @@ import json
 import os
 
 # ==================== KONFIGURASI ====================
-BOT_TOKEN = "6789833733:AAGwrc5fMhtKH8bPescTblEaQbZ-LS-iXcM"
+BOT_TOKEN = "6789833733:AAHkV4R0sW4ATsP_prMZfNKttHEMr3trmw0"
 OWNER_ID = 5854017651
 
 # File untuk menyimpan data
