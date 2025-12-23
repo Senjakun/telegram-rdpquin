@@ -14,8 +14,8 @@ import json
 import os
 
 # ==================== KONFIGURASI ====================
-BOT_TOKEN = "6789833733:AAHkV4R0sW4ATsP_prMZfNKttHEMr3trmw0"
-OWNER_ID = 5854017651
+BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"  # Ganti di VPS, jangan di sini!
+OWNER_ID = 123456789  # Ganti dengan Telegram ID kamu
 
 # File untuk menyimpan data
 DATA_FILE = "bot_data.json"
