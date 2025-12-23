@@ -14,8 +14,8 @@ import json
 import os
 
 # ==================== KONFIGURASI ====================
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"  # Ganti dengan token bot kamu
-OWNER_ID = 123456789  # Ganti dengan Telegram ID kamu
+BOT_TOKEN = "6789833733:AAGwrc5fMhtKH8bPescTblEaQbZ-LS-iXcM"
+OWNER_ID = 5854017651
 
 # File untuk menyimpan data
 DATA_FILE = "bot_data.json"
