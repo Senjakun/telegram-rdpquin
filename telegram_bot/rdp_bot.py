@@ -173,11 +173,12 @@ Contoh: <code>/l 123.456.78.90 password123</code>"""
 # ==================== BACK TO MAIN ====================
 @bot.callback_query_handler(func=lambda call: call.data == "back_main")
 def back_to_main(call):
-    # Recreate start message
-    user_id = call.from_user.id
-    user_name = call.from_user.first_name or "User"
-    
-    text = f"""🚀 <b>RDP INSTALLER BOT</b>
+    try:
+        # Recreate start message
+        user_id = call.from_user.id
+        user_name = call.from_user.first_name or "User"
+        
+        text = f"""🚀 <b>RDP INSTALLER BOT</b>
 ━━━━━━━━━━━━━━━━━━
 
 📊 <b>PROFILE ANDA</b>
@@ -190,20 +191,23 @@ def back_to_main(call):
 <b>OS</b> : Ubuntu 22/20 - Debian 11/12
 ━━━━━━━━━━━━━━━━━━"""
 
-    markup = types.InlineKeyboardMarkup(row_width=2)
-    
-    btn_install = types.InlineKeyboardButton("🖥 Install RDP", callback_data="install_rdp")
-    btn_owner = types.InlineKeyboardButton("💬 Owner ↗", url=data["owner_link"])
-    btn_channel = types.InlineKeyboardButton("📢 Channel ↗", url=data["channel_link"])
-    
-    markup.add(btn_install)
-    markup.add(btn_owner, btn_channel)
-    
-    if is_owner(user_id):
-        btn_settings = types.InlineKeyboardButton("⚙️ Settings Owner", callback_data="owner_settings")
-        markup.add(btn_settings)
-    
-    bot.edit_message_text(text, call.message.chat.id, call.message.message_id, parse_mode="HTML", reply_markup=markup)
+        markup = types.InlineKeyboardMarkup(row_width=2)
+        
+        btn_install = types.InlineKeyboardButton("🖥 Install RDP", callback_data="install_rdp")
+        btn_owner = types.InlineKeyboardButton("💬 Owner ↗", url=data["owner_link"])
+        btn_channel = types.InlineKeyboardButton("📢 Channel ↗", url=data["channel_link"])
+        
+        markup.add(btn_install)
+        markup.add(btn_owner, btn_channel)
+        
+        if is_owner(user_id):
+            btn_settings = types.InlineKeyboardButton("⚙️ Settings Owner", callback_data="owner_settings")
+            markup.add(btn_settings)
+        
+        bot.edit_message_text(text, call.message.chat.id, call.message.message_id, parse_mode="HTML", reply_markup=markup)
+    except Exception as e:
+        print(f"Error back_to_main: {e}")
+        bot.answer_callback_query(call.id, "Silakan ketik /start lagi")
 
 # ==================== OWNER SETTINGS ====================
 @bot.callback_query_handler(func=lambda call: call.data == "owner_settings")
