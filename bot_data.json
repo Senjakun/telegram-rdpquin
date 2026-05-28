@@ -1,0 +1,13 @@
+{
+  "allowed_users": [
+    5854017651
+  ],
+  "owner_link": "https://t.me/username_owner",
+  "channel_link": "https://t.me/lexzytesti",
+  "users": {
+    "5854017651": {
+      "balance": 0,
+      "total_install": 0
+    }
+  }
+}
